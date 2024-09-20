@@ -1,0 +1,574 @@
+﻿namespace ServiceManagementSoftware.Forms.ReportMenu
+{
+    partial class VoucherList
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tblMain = new System.Windows.Forms.TableLayoutPanel();
+            this.tblLayot_totals = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblReceived = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
+            this.lblAllTotal = new System.Windows.Forms.Label();
+            this.lblNetAmount = new System.Windows.Forms.Label();
+            this.dgvVoucher = new System.Windows.Forms.DataGridView();
+            this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGtol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNetAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReceivedAmt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblToolBar = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboPeriod = new System.Windows.Forms.ComboBox();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.cboCustomer = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.formTitle1 = new ServiceManagementSoftware.Components.FormTitle();
+            this.tblMain.SuspendLayout();
+            this.tblLayot_totals.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVoucher)).BeginInit();
+            this.tblToolBar.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tblMain
+            // 
+            this.tblMain.ColumnCount = 3;
+            this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tblMain.Controls.Add(this.tblLayot_totals, 1, 3);
+            this.tblMain.Controls.Add(this.dgvVoucher, 1, 2);
+            this.tblMain.Controls.Add(this.tblToolBar, 1, 1);
+            this.tblMain.Controls.Add(this.formTitle1, 1, 0);
+            this.tblMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblMain.Location = new System.Drawing.Point(0, 0);
+            this.tblMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tblMain.Name = "tblMain";
+            this.tblMain.RowCount = 5;
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 7F));
+            this.tblMain.Size = new System.Drawing.Size(991, 509);
+            this.tblMain.TabIndex = 1;
+            // 
+            // tblLayot_totals
+            // 
+            this.tblLayot_totals.ColumnCount = 7;
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tblLayot_totals.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tblLayot_totals.Controls.Add(this.lblTotal, 0, 0);
+            this.tblLayot_totals.Controls.Add(this.lblBalance, 6, 0);
+            this.tblLayot_totals.Controls.Add(this.lblReceived, 5, 0);
+            this.tblLayot_totals.Controls.Add(this.lblDiscount, 3, 0);
+            this.tblLayot_totals.Controls.Add(this.lblAllTotal, 0, 0);
+            this.tblLayot_totals.Controls.Add(this.lblNetAmount, 4, 0);
+            this.tblLayot_totals.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblLayot_totals.Location = new System.Drawing.Point(12, 467);
+            this.tblLayot_totals.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tblLayot_totals.Name = "tblLayot_totals";
+            this.tblLayot_totals.RowCount = 1;
+            this.tblLayot_totals.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblLayot_totals.Size = new System.Drawing.Size(967, 31);
+            this.tblLayot_totals.TabIndex = 11;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(437, 0);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(52, 21);
+            this.lblTotal.TabIndex = 6;
+            this.lblTotal.Text = "100000";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Location = new System.Drawing.Point(912, 0);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(52, 21);
+            this.lblBalance.TabIndex = 5;
+            this.lblBalance.Text = "100000";
+            // 
+            // lblReceived
+            // 
+            this.lblReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblReceived.AutoSize = true;
+            this.lblReceived.Location = new System.Drawing.Point(801, 0);
+            this.lblReceived.Name = "lblReceived";
+            this.lblReceived.Size = new System.Drawing.Size(45, 21);
+            this.lblReceived.TabIndex = 4;
+            this.lblReceived.Text = "10000";
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.Location = new System.Drawing.Point(568, 0);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(52, 21);
+            this.lblDiscount.TabIndex = 2;
+            this.lblDiscount.Text = "100000";
+            // 
+            // lblAllTotal
+            // 
+            this.lblAllTotal.AutoSize = true;
+            this.lblAllTotal.Location = new System.Drawing.Point(3, 0);
+            this.lblAllTotal.Name = "lblAllTotal";
+            this.lblAllTotal.Size = new System.Drawing.Size(59, 21);
+            this.lblAllTotal.TabIndex = 0;
+            this.lblAllTotal.Text = "Totals ::";
+            // 
+            // lblNetAmount
+            // 
+            this.lblNetAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNetAmount.AutoSize = true;
+            this.lblNetAmount.Location = new System.Drawing.Point(675, 0);
+            this.lblNetAmount.Margin = new System.Windows.Forms.Padding(3, 0, 9, 0);
+            this.lblNetAmount.Name = "lblNetAmount";
+            this.lblNetAmount.Size = new System.Drawing.Size(52, 21);
+            this.lblNetAmount.TabIndex = 1;
+            this.lblNetAmount.Text = "100000";
+            this.lblNetAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvVoucher
+            // 
+            this.dgvVoucher.AllowUserToAddRows = false;
+            this.dgvVoucher.AllowUserToDeleteRows = false;
+            this.dgvVoucher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVoucher.BackgroundColor = System.Drawing.Color.White;
+            this.dgvVoucher.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVoucher.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvVoucher.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(64)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVoucher.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVoucher.ColumnHeadersHeight = 30;
+            this.dgvVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvVoucher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNo,
+            this.colVno,
+            this.colDate,
+            this.colCustomer,
+            this.colGtol,
+            this.colRamo,
+            this.colNetAmount,
+            this.colReceivedAmt,
+            this.colBalance});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Zawgyi-One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(166)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVoucher.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvVoucher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVoucher.EnableHeadersVisualStyles = false;
+            this.dgvVoucher.Location = new System.Drawing.Point(12, 111);
+            this.dgvVoucher.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvVoucher.Name = "dgvVoucher";
+            this.dgvVoucher.ReadOnly = true;
+            this.dgvVoucher.RowHeadersVisible = false;
+            this.dgvVoucher.RowTemplate.Height = 30;
+            this.dgvVoucher.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVoucher.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVoucher.Size = new System.Drawing.Size(967, 348);
+            this.dgvVoucher.TabIndex = 1;
+            this.dgvVoucher.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVoucher_CellDoubleClick);
+            this.dgvVoucher.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvVoucher_DataBindingComplete);
+            // 
+            // colNo
+            // 
+            this.colNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colNo.HeaderText = "No.";
+            this.colNo.Name = "colNo";
+            this.colNo.ReadOnly = true;
+            this.colNo.Width = 50;
+            // 
+            // colVno
+            // 
+            this.colVno.DataPropertyName = "vNo";
+            this.colVno.HeaderText = "Voucher No.";
+            this.colVno.Name = "colVno";
+            this.colVno.ReadOnly = true;
+            // 
+            // colDate
+            // 
+            this.colDate.DataPropertyName = "vDate";
+            dataGridViewCellStyle3.Format = "d";
+            this.colDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDate.HeaderText = "Vounchered Date";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            // 
+            // colCustomer
+            // 
+            this.colCustomer.DataPropertyName = "customerName";
+            dataGridViewCellStyle4.NullValue = "-";
+            this.colCustomer.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colCustomer.HeaderText = "Customer";
+            this.colCustomer.Name = "colCustomer";
+            this.colCustomer.ReadOnly = true;
+            // 
+            // colGtol
+            // 
+            this.colGtol.DataPropertyName = "vTol";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N0";
+            this.colGtol.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colGtol.HeaderText = "Total Amount";
+            this.colGtol.Name = "colGtol";
+            this.colGtol.ReadOnly = true;
+            // 
+            // colRamo
+            // 
+            this.colRamo.DataPropertyName = "disAmt";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            this.colRamo.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colRamo.HeaderText = "Discount";
+            this.colRamo.Name = "colRamo";
+            this.colRamo.ReadOnly = true;
+            // 
+            // colNetAmount
+            // 
+            this.colNetAmount.DataPropertyName = "netAmt";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.colNetAmount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.colNetAmount.HeaderText = "Net Amount";
+            this.colNetAmount.Name = "colNetAmount";
+            this.colNetAmount.ReadOnly = true;
+            // 
+            // colReceivedAmt
+            // 
+            this.colReceivedAmt.DataPropertyName = "recAmt";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N0";
+            dataGridViewCellStyle8.NullValue = null;
+            this.colReceivedAmt.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colReceivedAmt.HeaderText = "Received Amount";
+            this.colReceivedAmt.Name = "colReceivedAmt";
+            this.colReceivedAmt.ReadOnly = true;
+            // 
+            // colBalance
+            // 
+            this.colBalance.DataPropertyName = "vBal";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N0";
+            this.colBalance.DefaultCellStyle = dataGridViewCellStyle9;
+            this.colBalance.HeaderText = "Balance";
+            this.colBalance.Name = "colBalance";
+            this.colBalance.ReadOnly = true;
+            // 
+            // tblToolBar
+            // 
+            this.tblToolBar.ColumnCount = 8;
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblToolBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tblToolBar.Controls.Add(this.btnExcel, 7, 1);
+            this.tblToolBar.Controls.Add(this.label1, 0, 0);
+            this.tblToolBar.Controls.Add(this.cboPeriod, 0, 1);
+            this.tblToolBar.Controls.Add(this.lblStartDate, 1, 0);
+            this.tblToolBar.Controls.Add(this.lblEndDate, 2, 0);
+            this.tblToolBar.Controls.Add(this.dtpStartDate, 1, 1);
+            this.tblToolBar.Controls.Add(this.dtpEndDate, 2, 1);
+            this.tblToolBar.Controls.Add(this.cboCustomer, 4, 1);
+            this.tblToolBar.Controls.Add(this.label2, 4, 0);
+            this.tblToolBar.Controls.Add(this.btnRefresh, 3, 1);
+            this.tblToolBar.Controls.Add(this.label3, 5, 0);
+            this.tblToolBar.Controls.Add(this.cboStatus, 5, 1);
+            this.tblToolBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblToolBar.Location = new System.Drawing.Point(9, 35);
+            this.tblToolBar.Margin = new System.Windows.Forms.Padding(0);
+            this.tblToolBar.Name = "tblToolBar";
+            this.tblToolBar.RowCount = 2;
+            this.tblToolBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tblToolBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblToolBar.Size = new System.Drawing.Size(973, 72);
+            this.tblToolBar.TabIndex = 1;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnExcel.FlatAppearance.BorderSize = 0;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Image = global::ServiceManagementSoftware.Properties.Resources.excel;
+            this.btnExcel.Location = new System.Drawing.Point(941, 34);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(29, 29);
+            this.btnExcel.TabIndex = 8;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Period";
+            // 
+            // cboPeriod
+            // 
+            this.cboPeriod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPeriod.BackColor = System.Drawing.Color.White;
+            this.cboPeriod.DisplayMember = "periodName";
+            this.cboPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPeriod.FormattingEnabled = true;
+            this.cboPeriod.Location = new System.Drawing.Point(3, 34);
+            this.cboPeriod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboPeriod.Name = "cboPeriod";
+            this.cboPeriod.Size = new System.Drawing.Size(169, 29);
+            this.cboPeriod.TabIndex = 1;
+            this.cboPeriod.ValueMember = "periodId";
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(178, 9);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(68, 21);
+            this.lblStartDate.TabIndex = 0;
+            this.lblStartDate.Text = "Start Date";
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Location = new System.Drawing.Point(290, 9);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(61, 21);
+            this.lblEndDate.TabIndex = 0;
+            this.lblEndDate.Text = "End Date";
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(178, 34);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(106, 29);
+            this.dtpStartDate.TabIndex = 2;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDate.Location = new System.Drawing.Point(290, 34);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(106, 29);
+            this.dtpEndDate.TabIndex = 2;
+            // 
+            // cboCustomer
+            // 
+            this.cboCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCustomer.BackColor = System.Drawing.Color.White;
+            this.cboCustomer.DisplayMember = "customerName";
+            this.cboCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCustomer.FormattingEnabled = true;
+            this.cboCustomer.Location = new System.Drawing.Point(443, 34);
+            this.cboCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboCustomer.Name = "cboCustomer";
+            this.cboCustomer.Size = new System.Drawing.Size(169, 29);
+            this.cboCustomer.TabIndex = 1;
+            this.cboCustomer.ValueMember = "customerId";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(443, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 21);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Customer";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Image = global::ServiceManagementSoftware.Properties.Resources.refresh_page_option;
+            this.btnRefresh.Location = new System.Drawing.Point(402, 34);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 9, 4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(29, 29);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(618, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Status";
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboStatus.BackColor = System.Drawing.Color.White;
+            this.cboStatus.DisplayMember = "customerName";
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "All",
+            "Unpaid",
+            "Paid"});
+            this.cboStatus.Location = new System.Drawing.Point(618, 34);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(125, 29);
+            this.cboStatus.TabIndex = 1;
+            this.cboStatus.ValueMember = "customerId";
+            // 
+            // formTitle1
+            // 
+            this.formTitle1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.formTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formTitle1.Location = new System.Drawing.Point(446, 0);
+            this.formTitle1.Margin = new System.Windows.Forms.Padding(0);
+            this.formTitle1.Name = "formTitle1";
+            this.formTitle1.Size = new System.Drawing.Size(99, 35);
+            this.formTitle1.TabIndex = 4;
+            this.formTitle1.Title = "Vouchers";
+            // 
+            // VoucherList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(991, 509);
+            this.Controls.Add(this.tblMain);
+            this.Font = new System.Drawing.Font("Zawgyi-One", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.Name = "VoucherList";
+            this.Text = "VoucherList";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VoucherList_FormClosed);
+            this.tblMain.ResumeLayout(false);
+            this.tblLayot_totals.ResumeLayout(false);
+            this.tblLayot_totals.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVoucher)).EndInit();
+            this.tblToolBar.ResumeLayout(false);
+            this.tblToolBar.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tblMain;
+        private System.Windows.Forms.DataGridView dgvVoucher;
+        private System.Windows.Forms.TableLayoutPanel tblToolBar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboPeriod;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.Label lblEndDate;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.ComboBox cboCustomer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRefresh;
+        private Components.FormTitle formTitle1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.TableLayoutPanel tblLayot_totals;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblReceived;
+        private System.Windows.Forms.Label lblDiscount;
+        private System.Windows.Forms.Label lblAllTotal;
+        private System.Windows.Forms.Label lblNetAmount;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGtol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRamo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNetAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReceivedAmt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBalance;
+    }
+}

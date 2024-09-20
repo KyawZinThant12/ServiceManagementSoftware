@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5D56CA4-A97C-4A96-96BC-B2078279DE6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceManagementSoftware</RootNamespace>
+    <AssemblyName>ServiceManagementSoftware</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Ref\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.DataVisualization.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.Design.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WebDesign.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.11.0.3366.16\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.11.0.1\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\BorderLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\BorderLabel.Designer.cs">
+      <DependentUpon>BorderLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ControlBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ControlBox.designer.cs">
+      <DependentUpon>ControlBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DropdownButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\DropdownButton.Designer.cs">
+      <DependentUpon>DropdownButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FormTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\FormTitle.Designer.cs">
+      <DependentUpon>FormTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\GridViewCheckBoxColumn.cs" />
+    <Compile Include="Components\MenuBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\MenuBar.designer.cs">
+      <DependentUpon>MenuBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\NoCuesButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\PercentageUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ShadowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\WaitingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\WaitingDialog.Designer.cs">
+      <DependentUpon>WaitingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CashMenu\CashEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CashMenu\CashEntry.Designer.cs">
+      <DependentUpon>CashEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CashMenu\CashList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CashMenu\CashList.Designer.cs">
+      <DependentUpon>CashList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HomeMenu\UnfinishedVouchers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HomeMenu\UnfinishedVouchers.Designer.cs">
+      <DependentUpon>UnfinishedVouchers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HomeMenu\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HomeMenu\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\BusinessInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\BusinessInfo.Designer.cs">
+      <DependentUpon>BusinessInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\DbManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\DbManagement.Designer.cs">
+      <DependentUpon>DbManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\DbSetupEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\DbSetupEntry.Designer.cs">
+      <DependentUpon>DbSetupEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\GeneralOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\GeneralOptions.Designer.cs">
+      <DependentUpon>GeneralOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\PrinterOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsMenu\PrinterOption.Designer.cs">
+      <DependentUpon>PrinterOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reporting\PrintPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reporting\PrintPreview.Designer.cs">
+      <DependentUpon>PrintPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\CashReceivedByTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\CashReceivedByTask.Designer.cs">
+      <DependentUpon>CashReceivedByTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\DailySummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\DailySummary.Designer.cs">
+      <DependentUpon>DailySummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\DelVoucherList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\DelVoucherList.Designer.cs">
+      <DependentUpon>DelVoucherList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\PopularTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\PopularTasks.Designer.cs">
+      <DependentUpon>PopularTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\ActionLogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\ActionLogList.Designer.cs">
+      <DependentUpon>ActionLogList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\ProfitAndLoss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\ProfitAndLoss.Designer.cs">
+      <DependentUpon>ProfitAndLoss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\VoucherCashReceived.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\VoucherCashReceived.Designer.cs">
+      <DependentUpon>VoucherCashReceived.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\ReportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\ReportList.Designer.cs">
+      <DependentUpon>ReportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\VoucherList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportMenu\VoucherList.Designer.cs">
+      <DependentUpon>VoucherList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\AppUserEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\AppUserEntry.Designer.cs">
+      <DependentUpon>AppUserEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\AppUser_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\AppUser_Main.Designer.cs">
+      <DependentUpon>AppUser_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\CustomerEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\CustomerEntry.designer.cs">
+      <DependentUpon>CustomerEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Customer_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Customer_Main.designer.cs">
+      <DependentUpon>Customer_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\EmployeeEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\EmployeeEntry.designer.cs">
+      <DependentUpon>EmployeeEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Employee_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Employee_Main.designer.cs">
+      <DependentUpon>Employee_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\ItemEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\ItemEntry.designer.cs">
+      <DependentUpon>ItemEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Item_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Item_Main.designer.cs">
+      <DependentUpon>Item_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\PermissionSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\PermissionSetup.Designer.cs">
+      <DependentUpon>PermissionSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\SetUpOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\SetUpOptions.Designer.cs">
+      <DependentUpon>SetUpOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\TaskEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\TaskEntry.designer.cs">
+      <DependentUpon>TaskEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Task_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetupMenu\Task_Main.designer.cs">
+      <DependentUpon>Task_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\DateEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\DateEntry.Designer.cs">
+      <DependentUpon>DateEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\VoucherEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\VoucherEntry.Designer.cs">
+      <DependentUpon>VoucherEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\TaskItemEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\TaskItemEntry.Designer.cs">
+      <DependentUpon>TaskItemEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\TaskList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\TaskList.Designer.cs">
+      <DependentUpon>TaskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\VChargesEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TaskMenu\VChargesEntry.Designer.cs">
+      <DependentUpon>VChargesEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utils\PasswordEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utils\PasswordEntry.Designer.cs">
+      <DependentUpon>PasswordEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Encryptor.cs" />
+    <Compile Include="Helpers\LangHelper.cs" />
+    <Compile Include="Helpers\PrintReport.cs" />
+    <Compile Include="Helpers\SortableBindingList.cs" />
+    <Compile Include="Model\ControlInfo.cs" />
+    <Compile Include="Model\DbInfo.cs" />
+    <Compile Include="Model\PrinterInfo.cs" />
+    <Compile Include="Model\ReportData.cs" />
+    <Compile Include="Model\UserInfo.cs" />
+    <Compile Include="Model\UserStore.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\Extensions.cs" />
+    <Compile Include="Shared\FormId.cs" />
+    <Compile Include="Shared\Functions.cs" />
+    <Compile Include="Shared\RegistryId.cs" />
+    <Compile Include="Shared\Variables.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Components\BorderLabel.resx">
+      <DependentUpon>BorderLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ControlBox.resx">
+      <DependentUpon>ControlBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DropdownButton.resx">
+      <DependentUpon>DropdownButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\FormTitle.resx">
+      <DependentUpon>FormTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\MenuBar.resx">
+      <DependentUpon>MenuBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\WaitingDialog.resx">
+      <DependentUpon>WaitingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CashMenu\CashEntry.resx">
+      <DependentUpon>CashEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CashMenu\CashList.resx">
+      <DependentUpon>CashList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HomeMenu\UnfinishedVouchers.resx">
+      <DependentUpon>UnfinishedVouchers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HomeMenu\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsMenu\BusinessInfo.resx">
+      <DependentUpon>BusinessInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsMenu\DbManagement.resx">
+      <DependentUpon>DbManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsMenu\DbSetupEntry.resx">
+      <DependentUpon>DbSetupEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsMenu\GeneralOptions.resx">
+      <DependentUpon>GeneralOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsMenu\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsMenu\PrinterOption.resx">
+      <DependentUpon>PrinterOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reporting\PrintPreview.resx">
+      <DependentUpon>PrintPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\CashReceivedByTask.resx">
+      <DependentUpon>CashReceivedByTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\DailySummary.resx">
+      <DependentUpon>DailySummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\DelVoucherList.resx">
+      <DependentUpon>DelVoucherList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\PopularTasks.resx">
+      <DependentUpon>PopularTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\ActionLogList.resx">
+      <DependentUpon>ActionLogList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\ProfitAndLoss.resx">
+      <DependentUpon>ProfitAndLoss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\VoucherCashReceived.resx">
+      <DependentUpon>VoucherCashReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\ReportList.resx">
+      <DependentUpon>ReportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportMenu\VoucherList.resx">
+      <DependentUpon>VoucherList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\AppUserEntry.resx">
+      <DependentUpon>AppUserEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\AppUser_Main.resx">
+      <DependentUpon>AppUser_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\CustomerEntry.resx">
+      <DependentUpon>CustomerEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\Customer_Main.resx">
+      <DependentUpon>Customer_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\EmployeeEntry.resx">
+      <DependentUpon>EmployeeEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\Employee_Main.resx">
+      <DependentUpon>Employee_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\ItemEntry.resx">
+      <DependentUpon>ItemEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\Item_Main.resx">
+      <DependentUpon>Item_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\PermissionSetup.resx">
+      <DependentUpon>PermissionSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\SetUpOptions.resx">
+      <DependentUpon>SetUpOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\TaskEntry.resx">
+      <DependentUpon>TaskEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupMenu\Task_Main.resx">
+      <DependentUpon>Task_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TaskMenu\DateEntry.resx">
+      <DependentUpon>DateEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TaskMenu\VoucherEntry.resx">
+      <DependentUpon>VoucherEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TaskMenu\TaskItemEntry.resx">
+      <DependentUpon>TaskItemEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TaskMenu\TaskList.resx">
+      <DependentUpon>TaskList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TaskMenu\VChargesEntry.resx">
+      <DependentUpon>VChargesEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utils\PasswordEntry.resx">
+      <DependentUpon>PasswordEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Language.en.resx" />
+    <EmbeddedResource Include="Languages\Language.my-MM.resx" />
+    <EmbeddedResource Include="Languages\Language.my.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReportFiles\Voucher_A5.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Model.BusinessInfo.datasource" />
+    <None Include="Properties\DataSources\Model.VoucherReport.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiple-users-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.1\nativeBinaries\x64\msvcr100.dll">
+      <Link>SqlServerTypes\x64\msvcr100.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.1\nativeBinaries\x64\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x64\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.1\nativeBinaries\x86\msvcr100.dll">
+      <Link>SqlServerTypes\x86\msvcr100.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.1\nativeBinaries\x86\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x86\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="logo.ico" />
+    <Content Include="ReadMe.txt" />
+    <Content Include="Ref\Dapper.dll" />
+    <Content Include="Ref\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="Ref\Newtonsoft.Json.dll" />
+    <Content Include="Ref\System.Data.Common.dll" />
+    <Content Include="Ref\System.Data.SqlClient.dll" />
+    <None Include="Resources\opt.png" />
+    <None Include="Resources\refresh-page-option.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\pie_chart.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <None Include="Resources\unlock_p.png" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\voucher.png" />
+    <None Include="Resources\lock_p.png" />
+    <None Include="Resources\arrow_left.png" />
+    <None Include="Resources\app_user.png" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\user_profile.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\cash.png" />
+    <None Include="Resources\checked.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\cross-out-mark.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\check-mark.png" />
+    <None Include="Resources\box.png" />
+    <None Include="Resources\minus-symbol.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\setup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{db8c5f78-13e6-490a-9e82-6311c8b84a84}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{469cf607-a8b7-4313-808b-48107e91c129}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

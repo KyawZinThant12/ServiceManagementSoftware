@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ServiceManagementSoftware.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ButtonBackColor2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">64, 64, 64</Value>
+    </Setting>
+    <Setting Name="ThemeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 86, 76</Value>
+    </Setting>
+    <Setting Name="ControlColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">54, 64, 74</Value>
+    </Setting>
+    <Setting Name="ThemeActiveColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 64, 64</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

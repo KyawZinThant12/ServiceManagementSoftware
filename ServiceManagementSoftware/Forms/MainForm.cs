@@ -1,0 +1,255 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using d = DataAccess;
+using va = ServiceManagementSoftware.Shared.Variables;
+using fn = ServiceManagementSoftware.Shared.Functions;
+using ServiceManagementSoftware.Forms.HomeMenu;
+using ServiceManagementSoftware.Forms.SetupMenu;
+using ServiceManagementSoftware.Forms.ReportMenu;
+using ServiceManagementSoftware.Forms.OptionsMenu;
+using ServiceManagementSoftware.Forms.TaskMenu;
+using ServiceManagementSoftware.Forms.CashMenu;
+using Newtonsoft.Json;
+using ServiceManagementSoftware.Model;
+using System.Runtime.InteropServices;
+using System.Threading;
+using ServiceManagementSoftware.Shared;
+using ServiceManagementSoftware.Components;
+
+namespace ServiceManagementSoftware.Forms
+{
+    public partial class MainForm : Form
+    {
+        const int cGrid = 16;
+        const int cCaption = 32;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int IParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public MainForm()
+        {
+            va.FrmMain = this;
+            CheckDbConn();
+            SetupRequiredData();
+            Helpers.LangHelper.Initialize();
+
+            InitializeComponent();
+
+            Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            MaximumSize = Screen.GetWorkingArea(this).Size;
+
+            CheckLoginUser();
+            SubscribeMenuEvents();
+            SetupControls();
+        }
+
+        public void UpdateBusinessInfo()
+        {
+            lblBsnName.Text = va.BusinessInfo?.name;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            var rc = new Rectangle(ClientSize.Width - cGrid, ClientSize.Height - cGrid, cGrid, cGrid);
+            ControlPaint.DrawSizeGrip(e.Graphics, BackColor, rc);
+            rc = new Rectangle(0, 0, ClientSize.Width, cCaption);
+            e.Graphics.FillRectangle(Brushes.DarkBlue, rc);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {
+                Point pos = new Point(m.LParam.ToInt32());
+                pos = PointToClient(pos);
+                if (pos.Y < cCaption)
+                {
+                    m.Result = (IntPtr)2;
+                    return;
+                }
+                if (pos.X >= ClientSize.Width - cGrid && pos.Y >= ClientSize.Height - cGrid)
+                {
+                    m.Result = (IntPtr)17;
+                    return;
+                }
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void pnlContolBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 0xA1, 0x2, 0);
+            }
+        }
+
+        private void tblControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 0xA1, 0x2, 0);
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            CheckUserPermissions();
+            mnu.btnHome.MakeClick();
+        }
+
+        #region "Functions"
+
+        private void CheckDbConn()
+        {
+            Task.Run(async() =>
+            {
+                var info = fn.GetRegistryValue(RegistryId.DbInfo);
+                if (info != null)
+                {
+                    var dbInfo = JsonConvert.DeserializeObject<DbInfo>(info.ToString());
+                    string pwd = Encoding.ASCII.GetString(dbInfo.DbPwd);
+                    string conString = fn.GetConString(dbInfo.ServerName, dbInfo.DbUserName,
+                        pwd, dbInfo.DbName);
+
+                    if (await fn.IsConStringValid(conString, new CancellationToken()))
+                    {
+                        d.SetUp.ConString = conString;
+
+                        return;
+                    }
+                }
+
+                // invalid db constring
+                DbSetupEntry entry = new DbSetupEntry();
+                if (entry.ShowDialog() == DialogResult.OK)
+                    return;
+
+                Environment.Exit(1);
+
+            }).Wait();
+        }
+
+        private void CheckLoginUser()
+        {
+            Login login = new Login();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                btnUser.ButtonText = va.CurrentUser.userName;
+                btnUser.MaximumSize = new Size(0, 28);
+            }
+            else
+                Environment.Exit(1);
+        }
+
+        private void CheckUserPermissions()
+        {
+            mnu.btnHome.Visible = fn.Permit(FormId.Home).viewAllow;
+            mnu.btnTask.Visible = fn.Permit(FormId.TaskHis).viewAllow;
+            mnu.btnSetup.Visible = fn.IsAllSetupPermit();
+            mnu.btnReport.Visible = fn.IsAllFormPermit();
+            mnu.btnSettings.Visible = fn.Permit(FormId.Option).viewAllow;
+        }
+
+        private void SetupRequiredData()
+        {
+            var info = fn.GetRegistryValue(RegistryId.PrinterInfo);
+            if (info != null)
+                va.PrinterInfo = JsonConvert.DeserializeObject<PrinterInfo>(info.ToString());
+            else
+                va.PrinterInfo = new PrinterInfo { Copies = 1 };
+
+            va.BusinessInfo = d.BusinessInfo.Get();
+            va.Options = d.AppOption.Get().ToList();
+        }
+
+        private void SetupControls()
+        {
+            mnu.MenuItemHeight = 80;
+
+            // set up Business Title
+            var origin = lblBsnName.Margin;
+            lblBsnName.Margin = new Padding(origin.Left + btnUser.Width, origin.Top, origin.Right, origin.Bottom);
+            UpdateBusinessInfo();
+        }
+
+        private void SubscribeMenuEvents()
+        {
+            mnu.HomeButtonClick += (sd, er) =>
+            {
+                fn.ShowForm<Home>();
+            };
+
+            mnu.ReportButtonClick += (sd, er) =>
+            {
+                fn.ShowForm<ReportList>();
+            };
+
+            mnu.TaskButtonClick += (sd, er) =>
+            {
+                fn.ShowForm<TaskList>();
+            };
+
+            mnu.CashButtonClick += (sd, er) =>
+            {
+                fn.ShowForm<CashList>();
+            };
+
+            mnu.SetupButtonClick += (sd, er) =>
+            {
+                fn.ShowForm<SetUpOptions>();
+            };
+
+            mnu.SettingsButtonClick += (sd, er) =>
+            {
+                fn.ShowForm<Options>();
+            };
+        }
+
+        #endregion
+
+        private void mnuLogOut_Click(object sender, EventArgs e)
+        {
+            fn.DeleteRegistryValue(RegistryId.UserInfo);
+
+            Application.Restart();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+                return;
+
+            if (MessageBox.Show("Are you sure that you want to exist ?", "Exit",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
+                return;
+
+            e.Cancel = true;
+        }
+    }
+}
